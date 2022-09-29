@@ -6,6 +6,7 @@ public class Ejecutor {
 
         Almacen almacen = new Almacen();
         View.menuOpciones(almacen);
+        System.out.println("Prueba , cambiando este archivo por primera vez con el repositorio creado");
 
     }
 
