@@ -49,6 +49,9 @@ public class Almacen {
         System.out.println();
         Rack rack = racks.get(opcion - 1);
 
+        System.out.println("Accesorios del rack " + rack.getNombre() + ":");
+        System.out.println("----------------------------------------------------");
+
         for (Accesorio accesorio : rack.getAccesorios()) {
 
             if (accesorio instanceof Espejo espejo)
