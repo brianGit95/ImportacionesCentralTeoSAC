@@ -23,7 +23,7 @@ public class Almacen {
         List<Accesorio> accesoriosA = new ArrayList<>();
 
         accesoriosA.add(new Espejo(Marca.HYUNDAI, Modelo.ELANTRA, 2015, Calidad.ORIGINAL, "lateral"));
-        accesoriosA.add(new Faro(Marca.NISSA,Modelo.SENTRA,2017,Calidad.ORIGINAL,"vidrio"));
+        accesoriosA.add(new Faro(Marca.NISSAN,Modelo.SENTRA,2017,Calidad.ORIGINAL,"vidrio"));
 
         this.racks.add(new Rack("A",accesoriosA));
 

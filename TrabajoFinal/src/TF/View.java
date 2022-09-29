@@ -324,10 +324,15 @@ public class View {
     static void registrarAccesorioRack(Scanner sc,Almacen almacen,int indiceRack,int opcionAccesorio)
     {
         Marca marcaElegida = menuMarcas(sc);
-        Modelo modeloElegido = menuModelosMarca(sc,marcaElegida);
-        Calidad calidadElegida = menuCalidad(sc);
+        if(marcaElegida == null) return;
 
-        System.out.print("Ingresa el año del accesorio: ");
+        Modelo modeloElegido = menuModelosMarca(sc,marcaElegida);
+        if(modeloElegido == null) return;
+
+        Calidad calidadElegida = menuCalidad(sc);
+        if(calidadElegida == null) return;
+
+        System.out.print("Ingresa el anio del accesorio: ");
         int anio = sc.nextInt();
 
         Accesorio accesorio = null;
@@ -343,7 +348,7 @@ public class View {
             }
             case 2 -> {
 
-                System.out.print("Ingresa el diseño del faro (vidrio/plastico): ");
+                System.out.print("Ingresa el disenio del faro (vidrio/plastico): ");
                 String disenio = sc.next();
 
                 accesorio = new Faro(marcaElegida,modeloElegido,anio,calidadElegida,disenio);
@@ -370,6 +375,7 @@ public class View {
 
         almacen.getRacks().get(indiceRack - 1).agregarAccesorio(accesorio);
 
+        System.out.println();
         System.out.println("------------------------------------");
         System.out.println("Accesorio registrado correctamente.");
         System.out.println("------------------------------------");
@@ -378,7 +384,7 @@ public class View {
 
     static Marca menuMarcas(Scanner sc)
     {
-        Marca[] marcas = new Marca[]{Marca.HYUNDAI,Marca.MITSUBISHI,Marca.NISSA,Marca.TOYOTA};
+        Marca[] marcas = new Marca[]{Marca.HYUNDAI,Marca.MITSUBISHI,Marca.NISSAN,Marca.TOYOTA};
         int salir = marcas.length + 1;
 
         int opcion = 1;
@@ -506,7 +512,7 @@ public class View {
             case MITSUBISHI -> new Modelo[]{Modelo.XPANDER, Modelo.NEWASX, Modelo.OUTLANDER};
             case TOYOTA -> new Modelo[]{Modelo.YARIS, Modelo.COROLLA, Modelo.FORTUNER};
             case HYUNDAI -> new Modelo[]{Modelo.ELANTRA, Modelo.TUCSON, Modelo.ACCENT};
-            case NISSA -> new Modelo[]{Modelo.SENTRA, Modelo.VERSA, Modelo.XTRAIL};
+            case NISSAN -> new Modelo[]{Modelo.SENTRA, Modelo.VERSA, Modelo.XTRAIL};
         };
 
     }
